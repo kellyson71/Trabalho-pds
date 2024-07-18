@@ -80,3 +80,14 @@ class Comprador(Usuario):
 
     def finalizar_compra(self):
         self.__carrinho.clear()
+
+class Venda:
+    def __init__(self, id, vendedor, comprador, carrinho):
+        self.__id = id
+        self.__vendedor = vendedor
+        self.__comprador = comprador
+        self.__carrinho = carrinho.copy()
+
+    def gerar_comprovante(self):
+        return f"Compra realizada por {self.__comprador.nome}, vendida por {self.__vendedor.nome}. Itens: {",".join([f"\n{pedido.nome} --- {pedido.quantidade}" for pedido in self.__carrinho])}"
+    

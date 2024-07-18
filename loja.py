@@ -75,12 +75,12 @@ class Comprador(Usuario):
     def get_carrinho(self):
         return self.__carrinho
     
-    def adicionar_produto_ao_carrinho(self, produto):
-        self.__carrinho.append(produto)
+    def adicionar_produto_ao_carrinho(self, produto, quantidade):
+        self.__carrinho.append(Pedido(1, produto, quantidade))
 
     def finalizar_compra(self):
         self.__carrinho.clear()
-
+        
 class Venda:
     def __init__(self, id, vendedor, comprador, carrinho):
         self.__id = id
@@ -89,5 +89,5 @@ class Venda:
         self.__carrinho = carrinho.copy()
 
     def gerar_comprovante(self):
-        return f"Compra realizada por {self.__comprador.nome}, vendida por {self.__vendedor.nome}. Itens: {",".join([f"\n{pedido.nome} --- {pedido.quantidade}" for pedido in self.__carrinho])}"
+        return f"Compra realizada por {self.__comprador.get_nome()}, vendida por {self.__vendedor.get_nome()}."
     

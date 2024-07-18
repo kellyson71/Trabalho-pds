@@ -1,3 +1,4 @@
+
 from usuarios import Usuario
 
 class Produto:
@@ -57,7 +58,6 @@ class vendedor(Usuario):
     def __init__(self, id, nome, email, senha):
         super().__init__(id, nome, email, senha)
         self.__produtos = []
-    
     def adicionar_produto(self, produto):
         self.__produtos.append(produto)
     
@@ -66,3 +66,17 @@ class vendedor(Usuario):
 
     def get_produtos(self):
         return self.__produtos
+    
+class Comprador(Usuario):
+    def __init__(self, id, nome, email, senha):
+        super().__init__(id, nome, email, senha)
+        self.__carrinho = []
+
+    def get_carrinho(self):
+        return self.__carrinho
+    
+    def adicionar_produto_ao_carrinho(self, produto):
+        self.__carrinho.append(produto)
+
+    def finalizar_compra(self):
+        self.__carrinho.clear()

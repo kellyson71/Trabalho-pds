@@ -1,3 +1,5 @@
+from index import Usuario
+
 class Produto:
     def __init__(self, id, nome, descricao, preco) -> None:
         self.__id = id
@@ -51,3 +53,16 @@ class Pedido:
     def get_quantidade(self):
         return self.__quantidade
     
+class Comprador(Usuario):
+    def __init__(self, id, nome, email, senha):
+        super().__init__(id, nome, email, senha)
+        self.__carrinho = []
+
+    def get_carrinho(self):
+        return self.__carrinho
+    
+    def adicionar_produto_ao_carrinho(self, produto):
+        self.__carrinho.append(produto)
+
+    def finalizar_compra(self):
+        self.__carrinho.clear()

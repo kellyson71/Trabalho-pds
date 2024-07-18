@@ -1,4 +1,5 @@
 # Trabalho-pds
 
 # Diagrama de classe
-![diagrama_classes](https://github.com/user-attachments/assets/a36de71a-7e81-42f4-98ba-4efe456ca94b)
+![diagrama_classes](https://github.com/user-attachments/assets/bac159c1-a4b1-45ea-b59d-a8d16ae78640)
+

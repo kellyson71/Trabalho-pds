@@ -1,4 +1,5 @@
-from index import Usuario
+
+from usuarios import Usuario
 
 class Produto:
     def __init__(self, id, nome, descricao, preco) -> None:
@@ -52,6 +53,19 @@ class Pedido:
     
     def get_quantidade(self):
         return self.__quantidade
+
+class vendedor(Usuario):
+    def __init__(self, id, nome, email, senha):
+        super().__init__(id, nome, email, senha)
+        self.__produtos = []
+    def adicionar_produto(self, produto):
+        self.__produtos.append(produto)
+    
+    def repor_estoque(self, produto, quantidade):
+        produto.set_estoque(produto.get_estoque() + quantidade)
+
+    def get_produtos(self):
+        return self.__produtos
     
 class Comprador(Usuario):
     def __init__(self, id, nome, email, senha):
